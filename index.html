@@ -43,18 +43,17 @@
             <section id="contact">
                 <h2>Kontaktieren Sie uns</h2>
                 <form id="contact-form">
-                    <input type="text" placeholder="Ihr Name" required>
-                    <input type="email" placeholder="Ihre E-Mail" required>
-                    <textarea placeholder="Ihre Nachricht" required></textarea>
+                    <input type="text" v-model="userName" placeholder="Ihr Name" required>
+                    <input type="email" v-model="userEmail" placeholder="Ihre E-Mail" required>
                     <button type="submit">Senden</button>
                 </form>
+                <p v-if="formSubmitted">{{ submissionMessage }}</p>
             </section>
         </main>
         <footer>
             <p>© 2024 IT Services. Alle Rechte vorbehalten.</p>
         </footer>
     </div>
-    <script src="https://unpkg.com/vue@3.2.31"></script>
     <script src="/Gattikernet-Website/js/app.js"></script>
 </body>
 </html>
