@@ -15,43 +15,19 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
     display: flex;
-    justify-content: center;
-    background: #333;
+    justify-content: center; /* Zentriert die Navigationselemente horizontal */
 }
 
 nav ul li {
-    position: relative;
-    margin: 0 15px;
-}
-
-nav > ul > li > ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #444;
-    padding: 10px 0;
-}
-
-nav ul li ul li {
-    margin: 0;
-}
-
-nav ul li:hover > ul {
-    display: block;
+    margin: 0 10px; /* Gibt jedem Listenelement gleichen horizontalen Abstand */
+    position: relative; /* Setzt die Basis für eine absolute Positionierung von Untermenüs */
 }
 
 a {
     color: #fff;
     text-decoration: none;
-    padding: 10px;
-    display: block;
-}
-
-a:hover {
-    background-color: #555;
+    padding: 10px; /* Fügt einen Klickbereich um den Link hinzu für eine bessere Benutzererfahrung */
 }
 
 main {
@@ -60,9 +36,9 @@ main {
 }
 
 .services-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Ermöglicht das Umbruchverhalten für Flex-Items */
+    justify-content: space-around; /* Verteilt die Dienste gleichmäßig mit Platz dazwischen */
     margin-top: 20px;
 }
 
@@ -71,6 +47,8 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-basis: 30%; /* Bestimmt die Basisgröße für jedes Service-Element vor dem Wachsen und Schrumpfen */
+    margin: 10px; /* Fügt einen Abstand zwischen den Service-Kästen hinzu */
 }
 
 footer {
@@ -101,18 +79,17 @@ input, textarea {
     border: 1px solid #ddd;
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li, nav > ul > li > ul {
-        width: 100%;
-        text-align: center;
-    }
-
+/* Media Queries für Responsives Verhalten */
+@media (max-width: 768px) {
     .services-container {
-        grid-template-columns: 1fr; /* Makes all service boxes stack vertically on small screens */
+        flex-direction: column; /* Stapelt die Service-Elemente untereinander */
+    }
+
+    .service {
+        flex-basis: 100%; /* Nimmt die volle Breite ein, wenn der Bildschirm kleiner ist */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stapelt die Navigationslinks untereinander */
     }
 }
