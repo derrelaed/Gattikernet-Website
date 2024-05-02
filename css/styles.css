@@ -1,8 +1,15 @@
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%; /* Stellt sicher, dass der HTML- und Body-Tag die volle Höhe der Ansicht einnehmen */
     margin: 0;
     padding: 0;
+    font-family: Arial, sans-serif;
     background: #f4f4f4;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; /* Stellt sicher, dass die App mindestens so hoch wie der Viewport ist */
 }
 
 header {
@@ -15,31 +22,31 @@ header {
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
-    justify-content: center; /* Zentriert die Navigationselemente horizontal */
-    align-items: center; /* Vertikales Zentrieren der Navigationselemente */
+    justify-content: center;
 }
 
 nav ul li {
-    margin: 0 10px; /* Gibt jedem Listenelement gleichen horizontalen Abstand */
+    margin: 0 10px;
 }
 
 a {
     color: #fff;
     text-decoration: none;
-    padding: 10px; /* Fügt einen Klickbereich um den Link hinzu für eine bessere Benutzererfahrung */
+    padding: 10px;
 }
 
 main {
+    flex: 1; /* Nimmt den verbleibenden Raum ein, damit der Footer unten bleibt */
     padding: 20px;
     text-align: center;
 }
 
 .services-container {
     display: flex;
-    flex-direction: column; /* Stapelt die Service-Elemente vertikal */
-    align-items: center; /* Zentriert die Service-Elemente horizontal */
-    margin-top: 20px;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Erlaubt den Dienstleistungscontainern, bei Bedarf umzubrechen */
 }
 
 .service {
@@ -47,8 +54,8 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 80%; /* Bestimmt die Breite jedes Service-Elements */
-    margin: 10px; /* Fügt einen Abstand zwischen den Service-Kästen hinzu */
+    flex: 1 1 300px; /* Erlaubt jedem Container zu schrumpfen und zu wachsen mit einer Basis von 300px */
+    margin: 10px;
 }
 
 footer {
