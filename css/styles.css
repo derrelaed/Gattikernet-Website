@@ -17,11 +17,11 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center; /* Zentriert die Navigationselemente horizontal */
+    align-items: center; /* Vertikales Zentrieren der Navigationselemente */
 }
 
 nav ul li {
     margin: 0 10px; /* Gibt jedem Listenelement gleichen horizontalen Abstand */
-    position: relative; /* Setzt die Basis für eine absolute Positionierung von Untermenüs */
 }
 
 a {
@@ -37,8 +37,8 @@ main {
 
 .services-container {
     display: flex;
-    flex-wrap: wrap; /* Ermöglicht das Umbruchverhalten für Flex-Items */
-    justify-content: space-around; /* Verteilt die Dienste gleichmäßig mit Platz dazwischen */
+    flex-direction: column; /* Stapelt die Service-Elemente vertikal */
+    align-items: center; /* Zentriert die Service-Elemente horizontal */
     margin-top: 20px;
 }
 
@@ -47,7 +47,7 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    flex-basis: 30%; /* Bestimmt die Basisgröße für jedes Service-Element vor dem Wachsen und Schrumpfen */
+    width: 80%; /* Bestimmt die Breite jedes Service-Elements */
     margin: 10px; /* Fügt einen Abstand zwischen den Service-Kästen hinzu */
 }
 
@@ -77,19 +77,4 @@ input, textarea {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ddd;
-}
-
-/* Media Queries für Responsives Verhalten */
-@media (max-width: 768px) {
-    .services-container {
-        flex-direction: column; /* Stapelt die Service-Elemente untereinander */
-    }
-
-    .service {
-        flex-basis: 100%; /* Nimmt die volle Breite ein, wenn der Bildschirm kleiner ist */
-    }
-
-    nav ul {
-        flex-direction: column; /* Stapelt die Navigationslinks untereinander */
-    }
 }
