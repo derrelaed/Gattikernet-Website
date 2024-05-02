@@ -47,6 +47,7 @@ main {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; /* Erlaubt den Dienstleistungscontainern, bei Bedarf umzubrechen */
+    align-items: flex-start; /* Verhindert ungleiche Ausrichtung während des Wrap-Vorgangs */
 }
 
 .service {
@@ -54,8 +55,8 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    flex: 1 1 300px; /* Erlaubt jedem Container zu schrumpfen und zu wachsen mit einer Basis von 300px */
-    margin: 10px;
+    width: calc(33.333% - 20px); /* Berechnet die Breite, um 3 Elemente pro Zeile zu haben, minus Margin */
+    margin: 10px; /* Fügt einen Abstand zwischen den Service-Kästen hinzu */
 }
 
 footer {
@@ -84,4 +85,15 @@ input, textarea {
     margin-top: 5px;
     border-radius: 5px;
     border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .services-container {
+        flex-direction: column; /* Stapelt die Service-Elemente vertikal */
+        align-items: center; /* Zentriert die Elemente vertikal */
+    }
+
+    .service {
+        width: 80%; /* Breite für kleinere Bildschirme anpassen */
+    }
 }
